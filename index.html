@@ -3,247 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>釜山行程表 | 부산 가족 여행</title>
+    <title>釜山暖心行程表 | 부산 가족 여행</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Noto Sans KR', 'Noto Sans TC', sans-serif; background-color: #f1f5f9; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Noto Sans KR', 'Noto Sans TC', sans-serif; background-color: #fffdf5; -webkit-tap-highlight-color: transparent; }
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .nav-btn.active { background-color: #2563eb; color: white; border-bottom: 4px solid #1d4ed8; }
-        .time-pill { background-color: #e2e8f0; color: #475569; padding: 2px 8px; border-radius: 6px; font-weight: 700; font-size: 0.75rem; }
-        .duration { color: #2563eb; font-weight: 500; font-size: 0.75rem; }
-        .lang-ko { color: #64748b; font-size: 0.85rem; display: block; margin-top: 1px; }
-        .card { background: white; border-radius: 1rem; padding: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; }
-        .map-btn { display: inline-flex; align-items: center; gap: 4px; background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; color: #334155; font-weight: 600; margin-top: 8px; transition: all 0.2s; }
-        .map-btn:active { background-color: #e2e8f0; transform: scale(0.95); }
+        
+        .nav-btn.active { background-color: #78350f; color: white; border-bottom: 4px solid #451a03; }
+        .nav-btn { color: #9a3412; transition: all 0.2s; }
+        
+        .time-pill { background-color: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 6px; font-weight: 700; font-size: 0.75rem; }
+        .lang-ko { color: #9a3412; font-size: 0.85rem; display: block; margin-top: 1px; opacity: 0.7; }
+        .card { background: white; border-radius: 1rem; padding: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); border: 1px solid #fde68a; }
+        
+        .map-btn { display: inline-flex; align-items: center; gap: 4px; background-color: #fff7ed; border: 1px solid #fed7aa; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; color: #9a3412; font-weight: 600; margin-top: 8px; transition: all 0.2s; }
+        .map-btn:active { background-color: #ffedd5; transform: scale(0.95); }
+        .hotel-link:active { opacity: 0.8; transform: scale(0.98); transition: all 0.1s; }
+        .dinner-option { border-left: 3px solid #f59e0b; padding-left: 10px; margin-top: 8px; }
     </style>
 </head>
-<body class="max-w-md mx-auto bg-slate-50 min-h-screen pb-20 shadow-2xl">
+<body class="max-w-md mx-auto bg-[#fffdf5] min-h-screen pb-32 shadow-2xl border-x border-amber-100">
 
     <!-- Header Section -->
-    <header class="bg-slate-900 text-white p-6 sticky top-0 z-50 shadow-md">
+    <header class="bg-gradient-to-br from-[#451a03] via-[#78350f] to-[#92400e] text-white p-6 sticky top-0 z-50 shadow-lg">
         <div class="flex justify-between items-start">
             <div>
-                <h1 class="text-xl font-bold tracking-tight">釜山親子自駕行程</h1>
-                <h2 class="text-sm opacity-80 font-light">부산 가족 자차 여행 일정표</h2>
+                <h1 class="text-xl font-bold tracking-tight text-amber-50">釜山家族暖心之旅</h1>
+                <h2 class="text-sm opacity-80 font-light italic">Warm Busan Family Tour</h2>
             </div>
-            <span class="bg-blue-600 text-[10px] px-2 py-1 rounded-full font-bold">Carnival 9인승</span>
+            <span class="bg-black/30 backdrop-blur-md text-[10px] px-2 py-1 rounded-full font-bold border border-white/20 text-amber-200">Carnival 9人座</span>
         </div>
-        <div class="mt-4 flex items-center gap-3 bg-white/10 p-3 rounded-lg backdrop-blur-sm">
-            <div class="text-xl">🏨</div>
-            <div class="text-[11px] leading-tight">
-                <p class="font-bold">紐西斯奧西利亞住宅</p>
-                <p class="opacity-70">뉴시즈 오시리아 레지던스</p>
+        
+        <!-- 住宿資訊與導航 -->
+        <div onclick="window.open('https://naver.me/xP82dUH6')" class="hotel-link mt-4 flex items-center gap-3 bg-white/15 p-3 rounded-xl backdrop-blur-md border border-white/20 cursor-pointer shadow-inner">
+            <div class="text-2xl">🏨</div>
+            <div class="text-[11px] leading-tight flex-1">
+                <p class="font-bold text-amber-100 flex items-center gap-1">
+                    第一二晚住宿 <span class="text-[9px] opacity-70">| 點擊導航</span>
+                </p>
+                <p class="font-bold text-base mt-0.5">紐西斯奧西利亞住宅</p>
+                <p class="opacity-60 text-[10px]">Newcz Osiria Residence · 뉴시즈 오시리아</p>
             </div>
+            <div class="text-amber-200 opacity-50">〉</div>
         </div>
     </header>
 
     <!-- Day Selector -->
-    <nav class="flex border-b sticky top-[124px] z-40 bg-white shadow-sm">
-        <button onclick="showDay('d1')" id="btn-d1" class="nav-btn flex-1 py-4 text-sm font-bold active">Day 1<br><span class="text-[10px] font-normal">2/26 (목)</span></button>
-        <button onclick="showDay('d2')" id="btn-d2" class="nav-btn flex-1 py-4 text-sm font-bold">Day 2<br><span class="text-[10px] font-normal">2/27 (금)</span></button>
-        <button onclick="showDay('d3')" id="btn-d3" class="nav-btn flex-1 py-4 text-sm font-bold">Day 3<br><span class="text-[10px] font-normal">2/28 (토)</span></button>
+    <nav class="flex border-b sticky top-[138px] z-40 bg-white/95 backdrop-blur-md shadow-sm">
+        <button onclick="showDay('d1')" id="btn-d1" class="nav-btn flex-1 py-4 text-sm font-bold active border-r border-orange-50">第一天<br><span class="text-[10px] font-normal italic opacity-80">Art & Sea</span></button>
+        <button onclick="showDay('d2')" id="btn-d2" class="nav-btn flex-1 py-4 text-sm font-bold border-r border-orange-50">第二天<br><span class="text-[10px] font-normal italic opacity-80">Sky & Beach</span></button>
+        <button onclick="showDay('d3')" id="btn-d3" class="nav-btn flex-1 py-4 text-sm font-bold">第三天<br><span class="text-[10px] font-normal italic opacity-80">Magic World</span></button>
     </nav>
 
-    <!-- Main Itinerary -->
+    <!-- Main Content -->
     <main class="p-4 space-y-6">
 
-        <!-- Day 1 Content -->
+        <!-- Day 1 -->
         <div id="d1" class="tab-content active space-y-4">
-            <div class="bg-blue-600 text-white p-4 rounded-2xl shadow-lg flex justify-between items-center">
+            <div class="bg-amber-100/40 border border-amber-200 text-amber-900 p-4 rounded-2xl shadow-sm flex justify-between items-center">
                 <div>
-                    <p class="text-[10px] opacity-80 uppercase tracking-widest">Pass Activation</p>
-                    <p class="text-lg font-bold">14:30 VBP 48H Start</p>
+                    <p class="text-[10px] uppercase tracking-widest font-bold opacity-70 italic">BVP 48H Pass</p>
+                    <p class="text-lg font-bold italic">14:30 預計啟用通行證</p>
                 </div>
-                <div class="text-2xl">🎟️</div>
+                <div class="text-2xl">🎫</div>
             </div>
 
-            <div class="relative border-l-2 border-slate-200 ml-4 pl-6 space-y-8">
-                <!--東灘-->
+            <div class="relative border-l-2 border-amber-200 ml-4 pl-6 space-y-8">
+                <!-- Start -->
                 <div class="relative">
-                    <div class="absolute -left-[31px] top-1 w-4 h-4 bg-slate-400 rounded-full border-4 border-white shadow-sm"></div>
+                    <div class="absolute -left-[31px] top-1 w-4 h-4 bg-amber-400 rounded-full border-4 border-[#fffdf5] shadow-sm"></div>
                     <span class="time-pill">08:00</span>
-                    <h3 class="font-bold mt-1">東灘開車出發 <span class="lang-ko">동탄 가족 출발</span></h3>
+                    <h3 class="font-bold mt-1 text-amber-900 italic">東灘出發 (開車約 4.5小時)</h3>
                 </div>
 
-                <!--午餐-->
-                <div class="card relative">
-                    <div class="absolute -left-[31px] top-4 w-4 h-4 bg-green-500 rounded-full border-4 border-white shadow-sm"></div>
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="time-pill">12:00</span>
-                            <h3 class="font-bold mt-1">松亭三代豬肉湯飯</h3>
-                            <span class="lang-ko">송정3대국밥 (서면)</span>
-                            <button onclick="window.open('https://naver.me/G9RbcS5Y')" class="map-btn">📍 Naver Map</button>
-                        </div>
-                        <span class="duration">1h</span>
-                    </div>
+                <!-- Lunch -->
+                <div class="card relative border-amber-100">
+                    <div class="absolute -left-[31px] top-4 w-4 h-4 bg-orange-600 rounded-full border-4 border-white shadow-sm"></div>
+                    <span class="time-pill">12:30</span>
+                    <h3 class="font-bold mt-1 text-orange-900 text-lg">松亭三代豬肉湯飯</h3>
+                    <span class="lang-ko italic">송정3대국밥 (西面名店)</span>
+                    <button onclick="window.open('https://naver.me/F42lWw7i')" class="map-btn">📍 Naver Map 導航</button>
                 </div>
 
-                <!--甘川-->
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-1 w-4 h-4 bg-slate-400 rounded-full border-4 border-white shadow-sm"></div>
-                    <span class="time-pill">13:10</span>
-                    <h3 class="font-bold mt-1">甘川洞文化村 <span class="lang-ko">감천문화마을</span></h3>
-                </div>
-
-                <!--新起鳥-->
-                <div class="card relative border-amber-200 bg-amber-50">
-                    <div class="absolute -left-[31px] top-4 w-4 h-4 bg-amber-500 rounded-full border-4 border-white shadow-sm"></div>
-                    <span class="time-pill bg-amber-200">14:30</span>
-                    <h3 class="font-bold mt-1">新起鳥咖啡 (VBP開卡)</h3>
-                    <span class="lang-ko">신기산업 (패스 활성화)</span>
-                </div>
-
-                <!--Arte Museum-->
-                <div class="card relative">
-                    <div class="absolute -left-[31px] top-4 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-sm"></div>
+                <!-- Attraction 1 -->
+                <div class="card relative border-amber-100">
+                    <div class="absolute -left-[31px] top-4 w-4 h-4 bg-orange-600 rounded-full border-4 border-white shadow-sm"></div>
                     <span class="time-pill">15:40</span>
-                    <h3 class="font-bold mt-1">Arte Museum 釜山</h3>
-                    <span class="lang-ko">아르떼뮤지엄 부산</span>
+                    <h3 class="font-bold mt-1 text-orange-900">Arte Museum 釜山</h3>
+                    <span class="lang-ko">아르떼뮤지엄 부산 (影島)</span>
+                    <p class="text-[11px] mt-2 text-gray-500 leading-relaxed">💡 使用 BVP 通行證進入，沉浸式藝術展非常適合全家拍照。</p>
+                    <button onclick="window.open('https://naver.me/FIfsvnna')" class="map-btn">📍 Naver Map 導航</button>
                 </div>
 
-                <!--纜車-->
-                <div class="card relative">
-                    <div class="absolute -left-[31px] top-4 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-sm"></div>
-                    <span class="time-pill">17:30</span>
-                    <h3 class="font-bold mt-1">松島海上纜車</h3>
-                    <span class="lang-ko">송도해상케이블카</span>
-                </div>
-
-                <!--飯店-->
-                <div class="bg-slate-800 text-white p-4 rounded-2xl relative shadow-xl">
-                    <div class="absolute -left-[31px] top-6 w-4 h-4 bg-slate-900 rounded-full border-4 border-white shadow-sm"></div>
-                    <span class="text-[10px] bg-white/20 px-2 py-1 rounded">18:40</span>
-                    <h3 class="font-bold mt-2 text-lg">抵達飯店入住</h3>
-                    <p class="text-xs text-slate-400 mt-1">뉴시즈 오시리아 도착 및 체크인</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Day 2 Content -->
-        <div id="d2" class="tab-content space-y-4">
-            <div class="relative border-l-2 border-slate-200 ml-4 pl-6 space-y-8">
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-1 w-4 h-4 bg-slate-400 rounded-full border-4 border-white shadow-sm"></div>
-                    <span class="time-pill">09:15</span>
-                    <h3 class="font-bold mt-1">飯店出發 <span class="lang-ko">숙소에서 출발</span></h3>
-                </div>
-
-                <div class="card relative bg-blue-50 border-blue-100">
-                    <div class="absolute -left-[31px] top-4 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-sm"></div>
-                    <span class="time-pill bg-blue-200">10:00</span>
-                    <h3 class="font-bold mt-1">藍線公園 天空膠囊</h3>
-                    <span class="lang-ko">블루라인파크 스카이캡슐</span>
-                </div>
-
-                <div class="card relative">
-                    <div class="absolute -left-[31px] top-4 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-sm"></div>
-                    <span class="time-pill">11:30</span>
-                    <h3 class="font-bold mt-1">釜山 X the Sky (100F)</h3>
-                    <span class="lang-ko">부산 엑스더스카이 전망대</span>
-                </div>
-
-                <div class="card relative">
-                    <div class="absolute -left-[31px] top-4 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-sm"></div>
-                    <span class="time-pill">15:00</span>
-                    <h3 class="font-bold mt-1">Skyline Luge 釜山</h3>
-                    <span class="lang-ko">스카이라인 루지 부산</span>
-                </div>
-
-                <div class="card relative bg-red-50 border-red-100">
+                <!-- Dinner Selection -->
+                <div class="card relative border-amber-200 bg-amber-50/30">
                     <div class="absolute -left-[31px] top-4 w-4 h-4 bg-red-500 rounded-full border-4 border-white shadow-sm"></div>
-                    <span class="time-pill bg-red-200 text-red-700">17:30</span>
-                    <h3 class="font-bold mt-1">嶺南豬肉 (烤肉晚餐)</h3>
-                    <span class="lang-ko text-red-600">영남돼지 (저녁 식사)</span>
-                    <button onclick="window.open('https://naver.me/FWJvS1S9')" class="map-btn">📍 Naver Map</button>
-                </div>
-            </div>
-        </div>
+                    <span class="time-pill bg-red-100 text-red-700">19:30</span>
+                    <h3 class="font-bold mt-1 text-red-900 text-lg">晚餐：機張/奧西利亞區域</h3>
+                    
+                    <div class="dinner-option">
+                        <p class="text-sm font-bold text-amber-900">選項 A：機張大蟹 (大滿大蟹)</p>
+                        <p class="text-[10px] text-amber-700 mb-1">推薦原因：在地名產，店家會處理好蟹殼，長輩吃得開心。</p>
+                        <button onclick="window.open('https://naver.me/xsYvC33H')" class="text-[10px] text-blue-600 font-bold underline">查看導航: 대만대게</button>
+                    </div>
 
-        <!-- Day 3 Content -->
-        <div id="d3" class="tab-content space-y-4">
-            <div class="relative border-l-2 border-slate-200 ml-4 pl-6 space-y-8">
-                <div class="relative">
-                    <div class="absolute -left-[31px] top-1 w-4 h-4 bg-slate-400 rounded-full border-4 border-white shadow-sm"></div>
-                    <span class="time-pill">10:30</span>
-                    <h3 class="font-bold mt-1">飯店退房 <span class="lang-ko">체크아웃</span></h3>
-                </div>
+                    <div class="dinner-option">
+                        <p class="text-sm font-bold text-amber-900">選項 B：1984 那天刀切麵</p>
+                        <p class="text-[10px] text-amber-700 mb-1">推薦原因：平價美味的海鮮麵與包肉組合，離飯店極近。</p>
+                        <button onclick="window.open('https://naver.me/GUtmOfUf')" class="text-[10px] text-blue-600 font-bold underline">查看導航: 1984그날칼국수</button>
+                    </div>
 
-                <div class="card relative bg-red-600 text-white shadow-2xl scale-105 transform translate-x-2">
-                    <div class="absolute -left-[39px] top-6 w-5 h-5 bg-red-600 rounded-full border-4 border-white shadow-lg"></div>
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="bg-white/20 px-2 py-0.5 rounded text-[10px] font-bold tracking-widest uppercase">Important</span>
-                            <h3 class="text-xl font-bold mt-2">釜山樂天世界 入場</h3>
-                            <span class="text-xs opacity-80 block mt-1">롯데월드 어드벤처 부산</span>
-                            <p class="text-[10px] mt-4 pt-3 border-t border-white/20 font-medium italic">※ 14:30 VBP 48H 만료 전 반드시 입장</p>
-                        </div>
-                        <span class="text-3xl">🎢</span>
+                    <div class="dinner-option">
+                        <p class="text-sm font-bold text-amber-900">選項 C：樂天 Outlet 美食街</p>
+                        <p class="text-[10px] text-amber-700">推薦原因：就在飯店對面，選擇最多，適合想隨便吃的晚上。</p>
                     </div>
                 </div>
+            </div>
+        </div>
 
-                <div class="relative pt-10">
-                    <div class="absolute -left-[31px] top-12 w-4 h-4 bg-slate-800 rounded-full border-4 border-white shadow-sm"></div>
-                    <span class="time-pill">17:30</span>
-                    <h3 class="font-bold mt-1 text-lg text-slate-800">結束行程返程 <span class="lang-ko text-sm">일정 종료 및 귀가</span></h3>
+        <!-- Day 2 -->
+        <div id="d2" class="tab-content space-y-4">
+            <div class="relative border-l-2 border-amber-200 ml-4 pl-6 space-y-8">
+                <div class="card relative">
+                    <div class="absolute -left-[31px] top-4 w-4 h-4 bg-orange-600 rounded-full border-4 border-white shadow-sm"></div>
+                    <span class="time-pill">10:00</span>
+                    <h3 class="font-bold mt-1 text-orange-900">海雲台藍線公園</h3>
+                    <span class="lang-ko">해운대 블루라인파크 (BVP)</span>
+                    <p class="text-[11px] mt-2 text-gray-500">💡 建議預約尾浦(Mipo)出發的海邊小列車。</p>
+                </div>
+                <div class="card relative">
+                    <div class="absolute -left-[31px] top-4 w-4 h-4 bg-orange-600 rounded-full border-4 border-white shadow-sm"></div>
+                    <span class="time-pill">13:00</span>
+                    <h3 class="font-bold mt-1 text-orange-900">海雲台市場 / 釜山 X the Sky</h3>
+                    <p class="text-[11px] mt-2 text-gray-500">💡 X the Sky 可使用 BVP 通行證。</p>
+                </div>
+                <div class="card relative">
+                    <div class="absolute -left-[31px] top-4 w-4 h-4 bg-orange-600 rounded-full border-4 border-white shadow-sm"></div>
+                    <span class="time-pill">18:30</span>
+                    <h3 class="font-bold mt-1 text-orange-900">海雲台遊艇體驗</h3>
+                    <span class="lang-ko">해운대 요트투어 (BVP)</span>
+                    <p class="text-[11px] mt-2 text-gray-500 italic">✨ 欣賞廣安大橋夜景的最佳選擇</p>
                 </div>
             </div>
         </div>
 
+        <!-- Day 3 -->
+        <div id="d3" class="tab-content space-y-4">
+            <div class="relative border-l-2 border-amber-200 ml-4 pl-6 space-y-8">
+                <div class="card relative bg-blue-50/50">
+                    <div class="absolute -left-[31px] top-4 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-sm"></div>
+                    <span class="time-pill">10:30</span>
+                    <h3 class="font-bold mt-1 text-blue-900">釜山樂天世界 / Skyline Luge</h3>
+                    <span class="lang-ko">롯데월드 어드벤처 부산 (BVP)</span>
+                    <p class="text-[11px] mt-2 text-gray-500">💡 就在飯店附近，最後一天玩完直接北返。</p>
+                </div>
+                <div class="relative">
+                    <div class="absolute -left-[31px] top-1 w-4 h-4 bg-amber-400 rounded-full border-4 border-[#fffdf5] shadow-sm"></div>
+                    <span class="time-pill">16:00</span>
+                    <h3 class="font-bold mt-1 text-amber-900 italic">結束行程，返回東灘</h3>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <!-- Footer Tips -->
-    <section class="mx-4 mb-10 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-        <h3 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
-            <span>🚗</span> 停車與自駕提醒 (주차 안내)
-        </h3>
-        <div class="space-y-4 text-xs text-slate-600">
-            <div class="flex gap-3">
-                <span class="font-bold text-blue-600 shrink-0">P1</span>
-                <p><b>影島/南浦:</b> 建議停樂天百貨光復店地下室，高度 2.1m 沒問題。<br><span class="text-[10px] opacity-70">롯데백화점 광복점 주차장 추천 (높이 2.1m 가능)</span></p>
-            </div>
-            <div class="flex gap-3">
-                <span class="font-bold text-blue-600 shrink-0">P2</span>
-                <p><b>海雲台:</b> 尾浦站請改導航至「尾浦公營停車場」，避免機械車位。<br><span class="text-[10px] opacity-70">미포공영주차장 이용 권장 (타워주차 불가)</span></p>
-            </div>
-            <div class="flex gap-3">
-                <span class="font-bold text-blue-600 shrink-0">P3</span>
-                <p><b>飯店:</b> 22:00 前需在系統登記車牌，否則會產生費用。<br><span class="text-[10px] opacity-70">숙소 주차 등록은 당일 22:00까지 필수입니다.</span></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Floating Navigation (for mobile feel) -->
-    <div class="fixed bottom-4 left-1/2 -translate-x-1/2 w-[90%] max-w-sm bg-white/80 backdrop-blur-md border border-slate-200 rounded-full shadow-2xl p-2 flex justify-around z-50">
-        <button onclick="showDay('d1')" class="flex flex-col items-center p-2 rounded-full hover:bg-slate-100 transition">
-            <span class="text-lg">🎨</span>
-            <span class="text-[8px] font-bold mt-1">第一天</span>
+    <!-- Bottom Nav -->
+    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-sm bg-white/95 backdrop-blur-lg border border-amber-100 rounded-full shadow-2xl p-2 flex justify-around z-50">
+        <button onclick="showDay('d1')" class="flex flex-col items-center px-4 py-2 rounded-full hover:bg-amber-50 transition group">
+            <span class="text-xl group-hover:scale-110 transition">📅</span>
+            <span class="text-[8px] font-bold mt-1 text-amber-800 uppercase">Day 1</span>
         </button>
-        <button onclick="showDay('d2')" class="flex flex-col items-center p-2 rounded-full hover:bg-slate-100 transition">
-            <span class="text-lg">🌊</span>
-            <span class="text-[8px] font-bold mt-1">第二天</span>
+        <button onclick="showDay('d2')" class="flex flex-col items-center px-4 py-2 rounded-full hover:bg-amber-50 transition group">
+            <span class="text-xl group-hover:scale-110 transition">🌅</span>
+            <span class="text-[8px] font-bold mt-1 text-amber-800 uppercase">Day 2</span>
         </button>
-        <button onclick="showDay('d3')" class="flex flex-col items-center p-2 rounded-full hover:bg-slate-100 transition">
-            <span class="text-lg">🎡</span>
-            <span class="text-[8px] font-bold mt-1">第三天</span>
+        <button onclick="showDay('d3')" class="flex flex-col items-center px-4 py-2 rounded-full hover:bg-amber-50 transition group">
+            <span class="text-xl group-hover:scale-110 transition">🎢</span>
+            <span class="text-[8px] font-bold mt-1 text-amber-800 uppercase">Day 3</span>
         </button>
     </div>
 
     <script>
         function showDay(day) {
-            // Hide all contents
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            // Remove active style from buttons
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            
-            // Show selected
             document.getElementById(day).classList.add('active');
             document.getElementById('btn-' + day).classList.add('active');
-            
-            // Scroll to top of the list
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
